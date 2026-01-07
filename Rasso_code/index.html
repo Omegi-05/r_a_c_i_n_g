@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <!--Heyyyy, je suis contente que tu aille voir par ici ! ^^
+    cette idée m'est venu dans mon rer, tête dans les nuages, 
+    j'ai penser à créer un mini projet un peu Y2K qui comporte une globalité de mes gouts musicaux,
+    je l'ai fini ce 23/12 à 04:18 du matin ≧ ﹏ ≦ -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="script.js"></script>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link
+      rel="shortcut icon"
+      type="image/png"
+      href="🚗"
+    />
+    <title>__🏎_</title>
+  </head>
+  <body>
+
+    <!--chargéééééé chargéééé-->
+    <div class="loader-wrapper" id="loader">
+      <div class="loader"></div>  <!-- l'element qui tourne pour chargement -->
+      <div class="loader2"> <!-- la barre de chargement -->
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+    </div>
+
+    <!--les boutons qui réagisse au click qui fait jouer l'audio-->
+
+    <div class="container">
+      <div class="grid">
+
+        <button id="button0" class="button" onclick="playAudio(0)">
+          <img class="button-image" src="images/Citroen.png" id="CITROEN" />
+        </button>
+
+        <button id="button1" class="button" onclick="playAudio(1)">
+          <img class="button-image" src="images/BMW.svg.png" id="BMW" />
+        </button>
+
+        <button id="button2" class="button" onclick="playAudio(2)">
+          <img class="button-image" src="images/Mazda.png" id="MAZDA" />
+        </button>
+
+      </div>
+    </div>
+    <!--pour mes grilles en fonds 😭😭-->
+    <div class="grid-background"></div>
+  </body>
+</html>
