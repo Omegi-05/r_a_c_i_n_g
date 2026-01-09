@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <!--j'aime les voitures-->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="script.js"></script>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link
+      rel="shortcut icon"
+      type="image/png"
+      href="images/FAVICON Cars.png"
+    />
+    <title>__🏎_</title>
+  </head>
+  <body>
+
+    <div class="loader-wrapper" id="loader">
+      <div class="loader"></div>  <!-- l'element qui tourne pour chargement -->
+      <div class="loader2"> <!-- la barre de chargement -->
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+    </div>
+
+    <!--les boutons qui réagisse au click qui fait jouer l'audio-->
+
+    <div class="container">
+      <div class="grid">
+
+        <button id="button0" class="button" onclick="playAudio(0)">
+          <img class="button-image" src="images/Citroen.png" id="CITROEN" />
+        </button>
+
+        <button id="button1" class="button" onclick="playAudio(1)">
+          <img class="button-image" src="images/BMW.svg.png" id="BMW" />
+        </button>
+
+        <button id="button2" class="button" onclick="playAudio(2)">
+          <img class="button-image" src="images/Mazda.png" id="MAZDA" />
+        </button>
+
+      </div>
+    </div>
+
+  </body>
+  <!--
+  Projet par Lola O.
+  Rasso Code 2026
+  source image BMW E36 DTM 1994 :
+  https://www.facebook.com/PureRacingGT/posts/bmw-m3-e36-ws-dhl-team-rudiger-schmitt-dtm-1994/1869906383145419/-->
+</html>
+
+
