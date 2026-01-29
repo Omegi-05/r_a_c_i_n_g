@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
   <head>
     <!--j'aime les voitures-->
@@ -6,9 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="script.js"></script>
     <link href="style.css" rel="stylesheet" type="text/css" />
-    <link rel="shortcut icon" type="image/png" href="images/FAVICON Cars.png" />
-    <title>__🏎_</title>
+    <link
+      rel="shortcut icon"
+      type="image/png"
+      href="images/FAVICON Cars_logo_rasso-30.png"
+    />
+    <title>🏎</title>
   </head>
+
   <body>
     <div class="loader-wrapper" id="loader">
       <div class="loader"></div>
@@ -19,27 +24,154 @@
       </div>
     </div>
 
-    <!--les boutons qui réagisse au click qui fait jouer l'audio-->
+    <!--les carousel et ses boutons audio-->
+    <div class="carousel-container">
+      <button class="nav-button left">《</button>
 
-    <div class="container">
-      <div class="grid">
-        <button id="button0" class="button" onclick="playAudio(0)">
-          <img class="button-image" src="images/Citroen.png" id="CITROEN" />
-        </button>
+      <div class="card-wrapper">
+        
+        <!-- Card 1 Citroen-->
+        <div class="card active" data-index="0">
+          <div class="corner-top-left">
+            <button id="button0" class="button" onclick="playAudio(0)">
+              <img class="button-image" src="images/Citroen.png" id="CITROEN" />
+            </button>
+          </div>
 
-        <button id="button1" class="button" onclick="playAudio(1)">
-          <img class="button-image" src="images/BMW.svg.png" id="BMW" />
-        </button>
+          <div class="corner-top-right">
+          <svg class="polygone-design" width="400" height="450" viewBox="0 0 400 450">
+        <!--Forme avec coin coupé-->
+        <defs>
+            <linearGradient id="blueGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#ffffffb7" />
+            </linearGradient>
+        </defs> 
+        <!--Polygone principal-->
+        <polygon 
+            points="25,25 375,25 375,375 85,375 25,315 25,25" 
+            fill="url(#blueGradient)" 
+            stroke="#647891" 
+            stroke-width="5"/></svg>
+          </div>
 
-        <button id="button2" class="button" onclick="playAudio(2)">
-          <img class="button-image" src="images/Mazda.png" id="MAZDA" />
-        </button>
+          <div class="center-main">
+            <a href="https://www.largus.fr/actualite-automobile/championnat-du-monde-des-rallyes-la-dynastie-des-sebastien-en-images-1141143-minidiapo.html" target="_blank">
+              <img
+                src="images/citroenc4wrc2010.png"
+                alt="voiture c4"
+                class="C4"/></a>
+            <img src="images/fond_citroen.png" alt="fond c4" class="fondc4" />
+            <script>
+              // Effet de déplacement de l'image de fond au mouvement de la souris //
+              const bg = document.querySelector(".C4");
+              const windowWidth = window.innerWidth / 8;
+              const windowHeight = window.innerHeight / 8;
+
+              bg.addEventListener("mousemove", (e) => {
+                const mouseX = e.clientX / windowWidth;
+                const mouseY = e.clientY / windowHeight;
+
+                bg.style.transform = `translate3d(-${mouseX}%, -${mouseY}%, 0)`;
+              });
+              // https://prismic.io/blog/css-background-effects //
+            </script>
+          </div>
+
+          <div class="corner-bottom-left"><img src="images/design_bleu.png" alt="design_bleu" class="design1"/> </div>
+          <div class="corner-bottom-right"><img src="images/Citroën C4 WRC-01.png" alt="design_text" class="design_text"/></div>
+          
+        </div>
+
+        <!-- Card 2 BMW-->
+        <div class="card next" data-index="1">
+          <div class="corner-top-left">
+            <button id="button1" class="button" onclick="playAudio(1)">
+              <img class="button-image" src="images/BMW.svg.png" id="BMW" />
+            </button>
+          </div>
+          <div class="corner-top-right">image png</div>
+          <div class="center-main">
+            <img src="images/bmwe36.png" alt="BMW" class="E36" />
+          </div>
+          <div class="corner-bottom-left">image png</div>
+          <div class="corner-bottom-right">image png</div>
+        </div>
+
+        <!-- Card 3 Mazda-->
+        <div class="card next" data-index="2">
+          <div class="corner-top-left">
+            <button id="button2" class="button" onclick="playAudio(2)">
+              <img class="button-image" src="images/Mazda.png" id="MAZDA" />
+            </button>
+          </div>
+          <div class="corner-top-right">
+            <img
+              src="images/design_jaune.png"
+              alt="design_jaune"
+              class="design1"
+            />
+          </div>
+          <div class="center-main">
+            <img src="images/mazdarx7.png" alt="Mazda" class="RX-7" />
+          </div>
+          <div class="corner-bottom-left">image png</div>
+          <div class="corner-bottom-right"></div>
+        </div>
       </div>
+
+      <button class="nav-button right">》</button>
     </div>
+
+    <script>
+      // les const servent à créer//
+      const cards = document.querySelectorAll(".card");
+      const leftBtn = document.querySelector(".nav-button.left");
+      const rightBtn = document.querySelector(".nav-button.right");
+
+      //let pour commencer l'action//
+      let currentIndex = 0;
+      const totalCards = cards.length;
+
+      function updateCards() {
+        cards.forEach((card, index) => {
+          card.classList.remove("active", "next", "prev");
+
+          if (index === currentIndex) {
+            card.classList.add("active");
+          } else if (index > currentIndex) {
+            card.classList.add("next");
+          } else {
+            card.classList.add("prev");
+          }
+        });
+      }
+
+      // On ajoute au boutons gauche et droite un eventlistener pour que les 3 cartes fonctionne //
+      leftBtn.addEventListener("click", () => {
+        currentIndex = (currentIndex - 1 + totalCards) % totalCards;
+        updateCards();
+      });
+
+      rightBtn.addEventListener("click", () => {
+        currentIndex = (currentIndex + 1) % totalCards;
+        updateCards();
+      });
+
+      // marche aussi au clavier avec les touches gauche;droite //
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowLeft") {
+          leftBtn.click();
+        } else if (e.key === "ArrowRight") {
+          rightBtn.click();
+        }
+      });
+    </script>
   </body>
   <!--
   Projet par Lola O.
   Rasso Code 2026
   source image BMW E36 DTM 1994 :
-  https://www.facebook.com/PureRacingGT/posts/bmw-m3-e36-ws-dhl-team-rudiger-schmitt-dtm-1994/1869906383145419/-->
+  https://www.facebook.com/PureRacingGT/posts/bmw-m3-e36-ws-dhl-team-rudiger-schmitt-dtm-1994/1869906383145419/
+  Citroen C4 WRC 2010 : https://www.largus.fr/actualite-automobile/championnat-du-monde-des-rallyes-la-dynastie-des-sebastien-en-images-1141143-12539413-diapo.html
+  MAZDA RX-7 fc3s Mitsuru Haraguchi: https://www.facebook.com/groups/150156252133038/posts/2089875604827750/-->
 </html>
